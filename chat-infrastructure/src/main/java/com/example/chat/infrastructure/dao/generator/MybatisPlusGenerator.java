@@ -65,7 +65,7 @@ public class MybatisPlusGenerator {
                         .fileOverride()
                         .disableOpenDir()
                         .outputDir("F:/my_pro/w-chat/src/main/java")
-                        .author("Vincent")
+                        .author("wht")
                         .commentDate("yyyy-MM-dd HH:mm:ss")
                         .dateType(DateType.TIME_PACK)
                         .enableSwagger()
