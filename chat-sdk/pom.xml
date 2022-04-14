@@ -11,9 +11,10 @@
     <groupId>com.example</groupId>
     <artifactId>chat-sdk</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>chat-sdk</name>
+    <name>chat-sdk</name> <packaging>jar</packaging>
     <description>Demo project for Spring Boot</description>
     <properties>
+        <swagger-fox.version>2.9.2</swagger-fox.version>
         <java.version>1.8</java.version>
     </properties>
     <dependencies>
@@ -26,6 +27,38 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.example</groupId>
+            <artifactId>chat-common</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <!-- swagger -->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>${swagger-fox.version}</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>mapstruct</artifactId>
+                    <groupId>org.mapstruct</groupId>
+                </exclusion>
+                <exclusion>
+                    <groupId>io.swagger</groupId>
+                    <artifactId>swagger-models</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <!-- 升级swagger-models解决NumberFormatException -->
+        <dependency>
+            <groupId>io.swagger</groupId>
+            <artifactId>swagger-models</artifactId>
+            <version>1.5.21</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>${swagger-fox.version}</version>
         </dependency>
     </dependencies>
 
