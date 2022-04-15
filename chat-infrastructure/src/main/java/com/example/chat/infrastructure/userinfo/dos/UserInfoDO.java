@@ -43,6 +43,10 @@ public class UserInfoDO implements Serializable {
     @TableField("rating")
     private String rating;
 
+    @ApiModelProperty("是否可用")
+    @TableField("if_active")
+    private String ifActive;
+
     @TableField(value = "create_time", fill = FieldFill.INSERT)
     private LocalDateTime createTime;
 

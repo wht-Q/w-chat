@@ -3,13 +3,13 @@ package com.example.chat.sdk.user;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
+import javax.validation.constraints.NotBlank;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
-
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)//链式访问
@@ -20,10 +20,11 @@ public class UserInfoDTO implements Serializable {
 
     private Integer id;
 
+    @NotBlank(message = "用户名不能为空")
     @ApiModelProperty("用户名")
     private String username;
 
-    @ApiModelProperty("电话	电话")
+    @ApiModelProperty("电话")
     private String phoneNumber;
 
     @ApiModelProperty("昵称")
