@@ -9,7 +9,7 @@ public class UserInfoChecker implements Checker {
     @Override
     public boolean check(Map<String, Object> args, Method method) {
 
-        return false;
+        return true;
     }
 
     @Override

@@ -1,34 +1,30 @@
 package com.example.chat.common.exceptions;
 
-import java.io.Serializable;
-
 import lombok.Data;
 
 @Data
-public class Response<T> implements Serializable {
+public class Response<T> {
 
-    private static final long serialVersionUID = -1220656299702215742L;
-    private String code;
+    private int code;
     private String message;
     private T data;
 
-    public static <T> Response ok(T data) {
-        return new Response("200", "success", data);
+    public static <T> Response<T> ok() {
+        return new Response(0, "ok", (Object)null);
     }
 
-    public static <T> Response ok(String code, String message, T data) {
-        return new Response(code, message, data);
+    public static <T> Response<T> ok(T result) {
+        return new Response(0, "ok", result);
     }
 
-    public static <T> Response fail(T data) {
-        return new Response("500", "fail request", data);
+    public static <T> Response<T> fail(String message) {
+        return new Response(-1, message, (Object)null);
     }
 
-    public static <T> Response fail(String code, String message, T data) {
-        return new Response(code, message, data);
+    public static <T> Response<T> fail(int code, String message) {
+        return new Response(code, message, (Object)null);
     }
-
-    private Response(String code, String message, T data) {
+    private Response(int code, String message, T data) {
         this.code = code;
         this.message = message;
         this.data = data;

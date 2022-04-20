@@ -34,13 +34,13 @@ public class UserController {
     @ApiOperation("获取当前用户基本信息")
     @GetMapping("/detail/by/{username}")
     @AnnotationCheck(checkers = {UserInfoChecker.class})
-    public Response detail(@PathVariable String username) {
+    public Response<UserInfoDTO> detail(@PathVariable String username) {
         return Response.ok(UserInfoDtoConverter.INSTANCE.toDTO(userInfoService.findByUsername(username)));
     }
 
     @ApiOperation("添加用户")
     @PostMapping("/add")
-    public Response add(@Valid @RequestBody UserInfoDTO user)  {
+    public Response<Boolean> add(@Valid @RequestBody UserInfoDTO user)  {
         return Response.ok(userInfoService.add(UserInfoDtoConverter.INSTANCE.toBO(user)));
     }
 
